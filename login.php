@@ -1,7 +1,10 @@
 <?php
+
 include "connect.php";
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,24 +33,25 @@ include "connect.php";
                                             $username = $_POST['username'];
                                             $password = md5($_POST['password']);
 
-                                            $data = mysqli_query($connect, "SELECT*FROM user where username='$username' and password='$password'");
+                                            $data = mysqli_query($koneksi, "SELECT*FROM user where username='$username' and password='$password'");
                                             $cek = mysqli_num_rows($data);
+
                                             if($cek > 0)
                                             {
                                                 $_SESSION['user'] = mysqli_fetch_array($data);
-                                                echo '<script>alert("Selamat Datang, Login Berhasil"); location.href="index.php";</script>';
-                                            }else{
-                                                echo '<script>alert("Maaf, Username/Password salah")</script>';
+                                                echo '<script>alert("Selamat datang, login berhasil"); location.href="index.php";</script>';
+                                            }else {
+                                                echo '<script>alert("MAAF, USERNAME SALAH")</script>';
                                             }
                                         }
                                         ?>
                                         <form method="post">
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputEmail" type="username" name="username" placeholder="Enter username" />
-                                                <label for="inputEmail">username</label>
+                                                <input class="form-control" id="username" type="text" name="username" placeholder="Enter username" />
+                                                <label for="inputEmail">Username</label>
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control" id="inputPassword" name="pasword" type="password" placeholder="Password" />
+                                                <input class="form-control" id="password" name="password" type="password" placeholder="Password" />
                                                 <label for="inputPassword">Password</label>
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
