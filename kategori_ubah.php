@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+include "connect.php";
+
+?>
+
 <h1 class="mt-4">Kategori Buku</h1>
     <div class="card">
     <div class="card-body">

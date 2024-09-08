@@ -1,3 +1,10 @@
+<?php
+
+session_start();
+include "connect.php";
+
+?>
+
 <h1 class="mt-4">Buku</h1>
     <div class="card">
     <div class="card-body">
@@ -29,7 +36,7 @@
                     <select name="id_kategori" class="form-control">
                         <?php
                             $kat = mysqli_query($koneksi, "SELECT*FROM kategori");
-                            while (kategori =  mysqli_fetch_array($kat)) {
+                            while ($kategori =  mysqli_fetch_array($kat)) {
                                 ?>
                                 <option <?php if ($kategori ['id_kategori'] == $data ['id_kategori']) echo 'selected'; ?> value="<?php echo $kategori ['id_kategori']; ?>"><?php echo $kategori ['kategori']; ?></option>
                                 <?php
